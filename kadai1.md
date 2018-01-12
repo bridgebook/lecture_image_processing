@@ -1,4 +1,4 @@
-#課題１
+# 課題１
 
 ORG=imread('landmark.png'); % 原画像の入力
 imagesc(ORG); axis image; % 画像の表示
