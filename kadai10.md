@@ -2,6 +2,35 @@
 
 画像のエッジ抽出を体験する。
 
+以下はソースコードである。
+
+ORG = imread('C:\Users\bridgebook\Pictures\landmark.jpg'); % 原画像の入力
+
+ORG = rgb2gray(ORG); %カラーからグレイへの変換
+
+imagesc(ORG); colormap('gray'); colorbar;% 画像表示
+
+pause; % 一時停止
+
+IMG = edge(ORG,'prewitt'); % エッジ抽出（プレウィット法）
+
+imagesc(IMG); colormap('gray'); colorbar;% 画像表示
+
+pause; % 一時停止
+
+IMG = edge(ORG,'sobel'); % エッジ抽出（ソベル法）
+
+imagesc(IMG); colormap('gray'); colorbar;% 画像表示
+
+pause; % 一時停止
+
+IMG = edge(ORG,'canny'); % エッジ抽出（キャニー法）
+
+imagesc(IMG); colormap('gray'); colorbar;% 画像表示
+
+pause; % 一時停止
+
+
 原画像には図1を用いる。
 
 ![kadai11](https://user-images.githubusercontent.com/35340807/34905143-64bbb200-f896-11e7-96ce-0a73b20097d2.png)
