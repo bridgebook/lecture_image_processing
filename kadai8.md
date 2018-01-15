@@ -1,6 +1,29 @@
 # 課題8 ラベリング
 
 二値化された画像の連結成分にラベルをつける。
+
+以下はソースコードである。
+
+ORG = imread('C:\Users\bridgebook\Pictures\landmark.jpg'); % 画像の読み込み
+
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
+
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+IMG = ORG > 128; % 閾値128で二値化
+
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+IMG = bwlabeln(IMG);
+
+imagesc(IMG); colormap(jet); colorbar; % 画像の表示
+
+pause;
+
 原画像には図1を用いる。
 
 ![kadai11](https://user-images.githubusercontent.com/35340807/34903547-2190a0fe-f877-11e7-8a4c-f1ff2ba06166.png)
