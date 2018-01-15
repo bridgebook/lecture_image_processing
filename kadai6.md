@@ -2,6 +2,23 @@
 
 原画像(図1)を用いて画像の二値化を行う。
 
+以下はソースコードである。
+
+clear; % 変数のオールクリア
+ORG=imread('C:\Users\bridgebook\Pictures\landmark.jpg'); % 原画像の入力
+ORG = rgb2gray(ORG);
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+pause; % 一時停止
+
+
+IMG = ORG>128; % 128による二値化
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+pause;
+
+IMG = dither(ORG); % ディザ法による二値化
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+
 ![kadai11](https://user-images.githubusercontent.com/35340807/34903547-2190a0fe-f877-11e7-8a4c-f1ff2ba06166.png)
 
 図1 原画像
