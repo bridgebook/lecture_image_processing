@@ -2,6 +2,43 @@
 
 メディアンフィルタを適用し、ノイズ除去を体験する。
 
+以下はソースコードである。
+
+ORG = imread('C:\Users\bridgebook\Pictures\landmark.jpg'); % 画像の読み込み
+
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
+
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+ORG = imnoise(ORG,'salt & pepper',0.02); % ノイズ添付
+
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+IMG = filter2(fspecial('average',3),ORG); % 平滑化フィルタで雑音除去
+
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+IMG = medfilt2(ORG,[3 3]); % メディアンフィルタで雑音除去
+
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+f=[0,-1,0;-1,5,-1;0,-1,0]; % フィルタの設計
+
+IMG = filter2(f,IMG,'same'); % フィルタの適用
+
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+
 原画像には図1を使用する。
 
 ![kadai91](https://user-images.githubusercontent.com/35340807/34905079-decc46a6-f894-11e7-8823-681f76f1cb3c.PNG)
