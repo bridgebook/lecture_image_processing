@@ -1,6 +1,26 @@
 # 課題7　ダイナミックレンジの拡大
 画素のダイナミックレンジを0から255に変更する。
 
+以下はソースコードである。
+
+ORG = imread('C:\Users\bridgebook\Pictures\landmark.jpg'); % 画像の読み込み
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+pause;
+imhist(ORG); % 濃度ヒストグラムを生成、表示
+pause;
+ORG = double(ORG);
+mn = min(ORG(:)); % 濃度値の最小値を算出
+mx = max(ORG(:)); % 濃度値の最大値を算出
+ORG = (ORG-mn)/(mx-mn)*255;
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+pause;
+ORG = uint8(ORG); % この行について考察せよ
+imhist(ORG); % 濃度ヒストグラムを生成、表示
+mn = min(ORG(:)); % 濃度値の最小値を算出
+mx = max(ORG(:)); % 濃度値の最大値を算出
+pause;
+
 原画像には図1を用いる。
 
 ![kadai11](https://user-images.githubusercontent.com/35340807/34903547-2190a0fe-f877-11e7-8a4c-f1ff2ba06166.png)
